@@ -2,20 +2,27 @@ package example1;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
-import org.omg.CORBA.TRANSACTION_MODE;
 
 import java.util.StringTokenizer;
 
 import java.util.NoSuchElementException;
 
 public class StringTokenizerTest {
+
+	StringTokenizer st;
+	
+	@Before
+	public void setUp() throws Exception {
+		st = new StringTokenizer("Test me if you can!");
+	}	
 	/**
 	 * Tests if nextToken() throws an exception when there are no tokens left
 	 */
 	@Test
 	public void testNextToken() {
-		StringTokenizer st = new StringTokenizer("");
+		st = new StringTokenizer("");
 		
 		try {
 			st.nextToken();
@@ -30,9 +37,7 @@ public class StringTokenizerTest {
 	 * Tests if nextToken(String str) throws an exception when str is null
 	 */
 	@Test
-	public void testNextTokenDelim() {
-		StringTokenizer st = new StringTokenizer("Test me");
-		
+	public void testNextTokenDelim() {		
 		try {
 			st.nextToken(null);
 			fail("No Exception!");
@@ -43,12 +48,10 @@ public class StringTokenizerTest {
 		}
 	}
 	/**
-	 * Tests if countTokens() actully counts tokens :)
+	 * Tests if countTokens() actually counts tokens :)
 	 */
 	@Test
 	public void testCountTokens() {
-		StringTokenizer st = new StringTokenizer("Test me if you can!");
-		
 		int count = st.countTokens();
 		assertEquals(5, count);
 	}
@@ -57,7 +60,6 @@ public class StringTokenizerTest {
 	 */
 	@Test
 	public void testHasMoreTokens() {
-		StringTokenizer st = new StringTokenizer("Test me");
 		boolean b;
 		
 		st.nextToken();
@@ -67,13 +69,4 @@ public class StringTokenizerTest {
 		b = st.hasMoreTokens();
 		assertEquals(b, false);
 	}
-	
-	@Test
-	public void testWhiteSpacesOnly() {
-		StringTokenizer st = new StringTokenizer("     ");
-		
-		int count = st.countTokens();
-		System.out.println(count);
-	}
-
 }
