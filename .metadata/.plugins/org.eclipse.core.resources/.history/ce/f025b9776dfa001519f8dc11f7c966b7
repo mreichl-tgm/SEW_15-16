@@ -1,0 +1,52 @@
+package example1;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import java.util.StringTokenizer;
+
+import java.util.NoSuchElementException;
+
+public class StringTokenizerTest {
+	
+	@Test
+	public void nextTokenTest() {
+		StringTokenizer st = new StringTokenizer("");
+		try {
+			st.nextToken();
+			fail("No Excpetion thrown!");
+		} catch (NoSuchElementException e) {
+			return;
+		} catch (Exception e) {
+			fail("Wrong exception!");
+		}
+	}
+	
+	@Test
+	public void nextTokenDelimTest() {
+		StringTokenizer st = new StringTokenizer("Test me");
+		st.nextToken(null);
+	}
+	
+	@Test
+	public void countTokensTest() {
+		StringTokenizer st = new StringTokenizer("Test me if you can!");
+		int count = st.countTokens();
+		assertEquals(5, count);
+	}
+	
+	@Test
+	public void hasMoreTokensTest() {
+		StringTokenizer st = new StringTokenizer("Test me");
+		boolean b;
+		
+		st.nextToken();
+		b = st.hasMoreTokens();
+		assertEquals(b, true);
+		st.nextToken();
+		b = st.hasMoreTokens();
+		assertEquals(b, false);
+	}
+
+}
