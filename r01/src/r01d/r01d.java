@@ -4,7 +4,7 @@ import java.io.File;
 
 public class r01d {
     public static void main(String[] args) {
-        ls("/home/kojote/Downloads/");
+        ls(args[0]);
     }
 
     static void ls(String dir) {
