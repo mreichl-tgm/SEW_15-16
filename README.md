@@ -1,4 +1,3 @@
-# SEW_15-16
-Repository for School
-
-Markus Reichl 3AHIT TGM-Wien
+## Software Development
+Markus Reichl 3AHIT
+2015 - 2016, TGM Wien
