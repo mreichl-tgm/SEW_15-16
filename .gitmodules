@@ -1,0 +1,3 @@
+[submodule "swake"]
+	path = swake
+	url = https://github.com/mreichl-tgm/swake
